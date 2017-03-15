@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" ng-app="Twitter">
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+
+
+  <link rel='stylesheet' href='/stylesheets/TweetList.css' />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="/javascripts/TweetList.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-resource.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-sanitize.min.js"></script>
+  <script src="//cdn.jsdelivr.net/masonry/4.1.0/masonry.pkgd.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src="//platform.twitter.com/widgets.js"></script>
+
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+</head>
+<body>
+
+	<!-- the root element of the view assigned to the TweetList javascript controller-->
+	<div ng-controller="TweetList">
+
+		<div class="row">
+			<div class="col l12">
+				<h1><img id="twitter-logo" src="images/Twitter_logo_white.png" /><%= title %></h1>
+			</div>
+		</div>
+
+		<div id="search-container" class="row">
+			<div class="col l4">
+
+				<!-- this form will trigger the getTweets function in the javascript controller on submit -->
+				<form ng-submit="getTweets()" >
+	  		Type in Twitter Handle (without the @)
+
+					<!-- this text input is binded to a variable in the javascript controller -->
+				  <input type="text" class="form-control" placeholder="NatuMyers" ng-model="username">
+
+					<span class="input-group-btn">
+		        <button class="btn btn-info" type="submit">Load Tweets</button>
+		      </span>
+
+				</form>
+   		</div>
+		</div>
+
+		<div class="row">
+			<div class="col l6 m12 s12">
+
+		    	<div id="tweet-list">
+
+		    		<!-- this div will repeat for every tweet object in the array using a template-expanding directive -->
+		    		<div ng-repeat="tweet in tweetsResult" class="tweet-item">
+
+              <div class="card-panel hoverable z-depth-1 col l12 m12 s12">
+
+		    			<!-- sanitized HTML binding -->
+							<div ng-bind-html="tweet.oEmbed.html"></div>
+
+							<!-- binding to Tweet source property -->
+							<div class="tweet-details">
+								Tweeted via <span ng-bind-html="tweet.source"></span>
+
+							</div>
+		    		</div>
+
+            <span class="white-text">
+            </span>
+          </div>
+
+
+		    	</div>
+
+		  </div>
+  	</div>
+
+		<div class="row">
+			<div class="col l12">
+
+				<!-- this button will trigger the getMoreTweets function in the javascript controller -->
+		  	<button type="button" class="load-more-btn btn btn-info" ng-click="getMoreTweets()">Get More Tweets</button>
+        <a class="btn btn-info" href="#">Top  <span class="glyphicon glyphicon-triangle-top"></span></a>
+
+      </div>
+	  </div>
+
+	</div>
+
+
+</body>
+</html>

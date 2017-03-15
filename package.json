@@ -1,0 +1,28 @@
+{
+  "name": "ng-twitter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "4.13.4",
+    "qs": "*",
+    "serve-favicon": "^2.3.0",
+    "twit": "2.2.4"
+  },
+  "engines": {
+    "node": "5.8.0",
+    "npm": "3.7.3"
+  },
+  "description": "Rendering Tweets with Angular & Node",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "ng-twitter"
+  },
+  "author": "dh",
+  "license": "ISC"
+}
