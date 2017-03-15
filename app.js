@@ -26,5 +26,5 @@ module.exports = app;
 
 var port = process.env.PORT || 8000;
 app.listen(port, function() {
-  console.log('Listening on ' + port + '!!!!!!!!!!!');
+  console.log('Listening on ' + port + 'please go there in your browser.');
 });

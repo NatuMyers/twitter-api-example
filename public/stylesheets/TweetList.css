@@ -1,6 +1,5 @@
 body {
   padding: 50px;
-  color: #333;
 }
 
 blockquote.twitter-tweet {
@@ -30,24 +29,32 @@ h1 {
 
 .tweet-item {
 	margin-bottom: 10px;
+	width: auto;
 }
 
 .tweet-details {
-	padding-left: 15px;
+
 	font-size: 11px;
 	color: #999;
+	width: auto;
+  margin: 0 auto;
 }
 
 .tweet-details a {
 	color: #999;
+  margin: 0 auto;
+
 }
 
 #search-container {
 	margin-bottom: 20px;
+  margin: 0 auto;
+	width: auto;
 }
 
 .user-search {
 	margin-bottom: 20px;
+	width: auto;
 }
 
 .load-tweets-btn {

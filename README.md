@@ -1,6 +1,3 @@
-#Rendering Tweets with Angular & Node
-
-##Stack: Node.js Angular 1 Materialize Twitter Search API
 
 ### How to Start Up
 
