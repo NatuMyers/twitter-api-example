@@ -42,6 +42,8 @@
 	  		<div class ="grey-text text-lighten-1" >
 
           Type in Twitter Handle (without the @), then click "Load Tweets"
+          <br>
+          Tweets not showing? Please refresh after 5-10 min (API overuse throttling).
 
 	  		</div>
 
@@ -57,7 +59,7 @@
 		</div>
 
     <br>
-    <div class="divider"></div> 
+    <div class="divider"></div>
     <br>
 
 		<div class="row">
@@ -71,7 +73,7 @@
               <div class="card-panel hoverable z-depth-1 col l12 m12 s12">
 
 		    			<!-- sanitized HTML binding -->
-							<div class = "center" ng-bind-html="tweet.oEmbed.html"></div>
+							<div class = "align-center" ng-bind-html="tweet.oEmbed.html"></div>
 
 							<!-- binding to Tweet source property -->
 							<div class="tweet-details">
