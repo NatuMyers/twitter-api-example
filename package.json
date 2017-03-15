@@ -23,6 +23,6 @@
     "type": "git",
     "url": "ng-twitter"
   },
-  "author": "dh",
-  "license": "ISC"
+  "author": "Natu Myers",
+  "license": "MIT"
 }
