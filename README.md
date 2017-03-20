@@ -6,7 +6,7 @@
 
 Clone or Download
 
-Assuming you have already installed Node.js, run ``nodemon`` - this will start the server at port 8000
+Assuming you have already installed Node.js, run ``npm i`` then run ``nodemon`` - this will start the server at port 8000
 
 Open your browser and hit ``localhost:8000`` to view page
 
