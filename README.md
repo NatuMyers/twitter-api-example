@@ -13,5 +13,4 @@ Scroll to the bottom of the page to **get more tweets** or hit the **Top** butto
 
 (If the results don't show the API may have been hit too much and is throttling. Simply wait five minutes and hit refresh)
 
-![screenshot](./screenshot.png "Top Screenshot of ng-twitter App ")
 ![screenshot too](./screenshot2.png "Bottom Screenshot of ng-twitter App")
