@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title><%= title %></title>
 
-
   <link rel='stylesheet' href='/stylesheets/TweetList.css' />
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -39,20 +38,19 @@
 
 				<!-- this form will trigger the getTweets function in the javascript controller on submit -->
 				<form ng-submit="getTweets()" >
-	  		<div class ="grey-text text-lighten-1" >
 
-          Type in Twitter Handle (without the @), then click "Load Tweets"
-          <br>
-          Tweets not showing? Please refresh after 5-10 min (API overuse throttling).
-
-	  		</div>
+  	  		<div class ="grey-text text-lighten-1" >
+            Type in Twitter Handle (without the @), then click "Load Tweets"
+            <br>
+            Tweets not showing? Please refresh after 5-10 min (API overuse throttling).
+  	  		</div>
 
 					<!-- this text input is binded to a variable in the javascript controller -->
 				  <input type="text" class="form-control" placeholder="NatuMyers" ng-model="username">
 
-
+          <span class="input-group-btn">
 		        <button class="btn btn-info" type="submit">Load Tweets</button>
-
+		      </span>
 
 				</form>
    		</div>
