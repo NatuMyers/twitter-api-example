@@ -1,30 +1,31 @@
-var express = require('express');
-var path = require('path');
-var index = require('./routes/index');
-var tweets = require('./routes/tweets');
-var app = express();
-var favicon = require('serve-favicon');
+// NodeJS provides the require function, whose job is to load modules and give you access to their exports.
 
-// favicon
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+// modules keep scopes local (js classes)
+let express = require('express');
+let path = require('path');
+let index = require('./routes/index');
+let tweets = require('./routes/tweets');
+let favicon = require('serve-favicon');
 
-// serve static assets from the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+let myExpressApp = express();
 
-// look for view html in the views directory
-app.set('views', path.join(__dirname, 'views'));
+//// middleware
 
-// use ejs to render
-app.set('view engine', 'ejs');
+/// use
 
-// setup routes
-app.use('/', index);
-app.use('/tweets', tweets);
+myExpressApp.use(favicon(__dirname + '/public/images/favicon.ico'));
+myExpressApp.use(express.static(path.join(__dirname, 'public')));
+myExpressApp.use('/', index);
+myExpressApp.use('/tweets', tweets);
 
+/// set
 
-module.exports = app;
+myExpressApp.set('view engine', 'ejs');
+myExpressApp.set('views', path.join(__dirname, 'views'));
+module.exports = myExpressApp;
 
-var port = process.env.PORT || 8000;
-app.listen(port, function() {
-  console.log('Listening on port ' + port + ' please go there in your browser.');
+let port = 8000;
+
+myExpressApp.listen(port, function() {
+  console.log('Listening on port ' + port + ' please go there in your browser!');
 });

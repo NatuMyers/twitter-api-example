@@ -1,22 +1,20 @@
-var express = require('express');
-var router = express.Router();
-var Twit = require('twit');
-var config = require('../config');
+let express = require('express');
+let router = express.Router();
+let Twit = require('twit');
+let config = require('../config');
 
 // instantiate Twit module
-var twitter = new Twit(config.twitter);
+let twitterClient = new Twit(config.twitter);
 
-var TWEET_COUNT = 18;
-var MAX_WIDTH = 253;
-var OEMBED_URL = 'statuses/oembed';
-var USER_TIMELINE_URL = 'statuses/user_timeline';
+let TWEET_COUNT = 18;
+let MAX_WIDTH = 253;
+let OEMBED_URL = 'statuses/oembed';
+let USER_TIMELINE_URL = 'statuses/user_timeline';
 
-/**
- * GET tweets json.
- */
+// GET tweets json.
 router.get('/user_timeline/:user', function(req, res) {
 
-  var oEmbedTweets = [], tweets = [],
+  let oEmbedTweets = [], tweets = [],
 
   params = {
     screen_name: req.params.user, // the user id passed in as part of the route
@@ -29,24 +27,23 @@ router.get('/user_timeline/:user', function(req, res) {
   }
 
   // request data
-  twitter.get(USER_TIMELINE_URL, params, function (err, data, resp) {
+  twitterClient.get(USER_TIMELINE_URL, params, function (err, data, resp) {
 
     tweets = data;
 
-    var i = 0, len = tweets.length;
+    let i = 0, len = tweets.length;
 
     for(i; i < len; i++) {
       getOEmbed(tweets[i]);
     }
   });
 
-  /**
-   * requests the oEmbed html
-   */
-  function getOEmbed (tweet) {
+
+  // requests the oEmbed html
+  function getOEmbed (twitterClient) {
 
     // oEmbed request params
-    var params = {
+    let params = {
       "id": tweet.id_str,
       "maxwidth": MAX_WIDTH,
       "hide_thread": true,
@@ -54,7 +51,7 @@ router.get('/user_timeline/:user', function(req, res) {
     };
 
     // request data
-    twitter.get(OEMBED_URL, params, function (err, data, resp) {
+    twitterClient.get(OEMBED_URL, params, function (err, data, resp) {
       tweet.oEmbed = data;
       oEmbedTweets.push(tweet);
 

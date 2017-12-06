@@ -1,9 +1,9 @@
 let express = require('express');
-let expressRouter = express.Router();
+let router = express.Router();
 
 /* GET home page. */
-expressRouter.get('/', function(req, res) {
+router.get('/', function(req, res) {
   res.render('index', { title: 'Twitter API Example' });
 });
 
-module.exports = expressRouter;
+module.exports = router;
